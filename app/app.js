@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-//import css from './style.css';
 require('./style.css')
 
 //TodoList组件是一个整体的组件，最终React也只渲染这个组件
+
 //TodoList组件是两个组件的集合
 class TodoList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			todolist: []
+			todolist: [],
+			timer:null
 		}
 	}
 
@@ -51,7 +52,7 @@ class TypeNew extends Component {
 		);
 	}
 };
-// 删除
+// 删除组价
 class ListTodo extends Component {
 	delContent(e) {
 		var i = e.target.getAttribute("data-index");

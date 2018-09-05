@@ -9451,10 +9451,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//import css from './style.css';
 __webpack_require__(186);
 
 //TodoList组件是一个整体的组件，最终React也只渲染这个组件
+
 //TodoList组件是两个组件的集合
 
 var TodoList = function (_Component) {
@@ -9466,7 +9466,8 @@ var TodoList = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).call(this, props));
 
 		_this.state = {
-			todolist: []
+			todolist: [],
+			timer: null
 		};
 		return _this;
 	}
@@ -9538,7 +9539,7 @@ var TypeNew = function (_Component2) {
 }(_react.Component);
 
 ;
-// 删除
+// 删除组价
 
 var ListTodo = function (_Component3) {
 	_inherits(ListTodo, _Component3);
@@ -11555,7 +11556,7 @@ exports = module.exports = __webpack_require__(83)(undefined);
 
 
 // module
-exports.push([module.i, "*{\n\tpadding: 0;\n\tmargin: 0;\n}\nbody{\n\tbackground-color: #F5A22C;\n\tletter-spacing: 1px;\n}\n.top{\n\ttext-align: center;\n\tmargin-bottom: 20px;\n\tfont-size: 26px;\n}\n.timer{\n\ttext-align: center;\n\tmargin-bottom: 20px;\n\tfont-size: 26px;\n}\n.form{\n\twidth: 430px;\n\theight: 50px;\n}\n.input{\n\theight:100%;\n\twidth: 350px;\n\tborder: none;\n\tfont-size: 17px;\n\tpadding-left: 10px;\n\tcolor: #8B8383;\n}\n.add{\n\theight: 100%;\n\twidth: 60px;\n\tmargin-left: 10px;\n\tbackground-color: #FB731F;\n\tborder: none;\n\tcolor: white;\n\tfont-size: 16px;\n}\n.add:hover{\n\tcursor: pointer;\n}\n.content{\n\twidth: 420px;\n\tbackground-color: rgba(255,255,255,.3);\n\tmargin-top: 20px;\n\tlist-style: none;\n\tborder-radius: 10px;\n\tpadding-left: 10px;\n\tfont-size: 17px;\n\tline-height: 60px;\n}\n.content .del{\n\tfloat: right;\n\tpadding-right: 10px;\n\tcolor: #A19898;\n}\n.del:hover{\n\tcursor: pointer;\n}", ""]);
+exports.push([module.i, "*{\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n}\r\nbody{\r\n\tbackground-color: #F5A22C;\r\n\tletter-spacing: 1px;\r\n}\r\n.top{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.timer{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.form{\r\n\twidth: 430px;\r\n\theight: 50px;\r\n}\r\n.input{\r\n\theight:100%;\r\n\twidth: 350px;\r\n\tborder: none;\r\n\tfont-size: 17px;\r\n\tpadding-left: 10px;\r\n\tcolor: #8B8383;\r\n}\r\n.add{\r\n\theight: 100%;\r\n\twidth: 60px;\r\n\tmargin-left: 10px;\r\n\tbackground-color: #FB731F;\r\n\tborder: none;\r\n\tcolor: white;\r\n\tfont-size: 16px;\r\n}\r\n.add:hover{\r\n\tcursor: pointer;\r\n}\r\n.content{\r\n\twidth: 420px;\r\n\tbackground-color: rgba(255,255,255,.3);\r\n\tmargin-top: 20px;\r\n\tlist-style: none;\r\n\tborder-radius: 10px;\r\n\tpadding-left: 10px;\r\n\tfont-size: 17px;\r\n\tline-height: 60px;\r\n}\r\n.content .del{\r\n\tfloat: right;\r\n\tpadding-right: 10px;\r\n\tcolor: #A19898;\r\n}\r\n.del:hover{\r\n\tcursor: pointer;\r\n}", ""]);
 
 // exports
 
