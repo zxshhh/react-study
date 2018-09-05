@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 require('./style.css')
 
 //TodoList组件是一个整体的组件，最终React也只渲染这个组件
+
 //TodoList组件是两个组件的集合
 class TodoList extends Component {
 	constructor(props) {
