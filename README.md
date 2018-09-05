@@ -1,2 +1,2 @@
-# reactt-study
+# react-study
 react学习
