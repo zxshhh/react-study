@@ -5,7 +5,25 @@
 	<title>Document</title>
 </head>
 <body>
-<div id="example" style="width: 430px; margin: 100px auto;"></div>
-<script type="text/javascript" src="/main.js"></script>
+	<div id="example" style="width: 430px; margin: 100px auto;"></div>
+	<script type="text/javascript" src="/main.js"></script>
+	
+	<script type="text/babel">
+		// var props = {};
+		// props.foo = 1;
+		// props.bar = 2;
+		// console.log(props);
+		// var component = <Component {...props} foo = {'3'} />;
+		// console.log(component.props.foo);
+		
+		var myStyle = {
+			fontSize: 100,
+			color: '#f00'
+		}
+		reactDOM.render(
+			<h1 style = {myStyle}>学习react</h1>
+		)
+		
+	</script>
 </body>
 </html> 

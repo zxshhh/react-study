@@ -9501,7 +9501,7 @@ var TodoList = function (_Component) {
 }(_react.Component);
 
 ;
-// 新加行数
+// 新加组件
 
 var TypeNew = function (_Component2) {
 	_inherits(TypeNew, _Component2);
@@ -9539,7 +9539,7 @@ var TypeNew = function (_Component2) {
 }(_react.Component);
 
 ;
-// 删除组价
+// 删除组件
 
 var ListTodo = function (_Component3) {
 	_inherits(ListTodo, _Component3);
