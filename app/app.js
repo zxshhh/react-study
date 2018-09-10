@@ -10,27 +10,68 @@ class TodoList extends Component {
 		super(props);
 		this.state = {
 			todolist: [],
-			timer:null
+			nowTime:new Date(),
+			value: 'Hello world!'
 		}
+		this.timeID = null;
 	}
-
+	//挂载
+	componentDidMount(){
+		this.timeID = setInterval(
+			()=>{
+				this.setState({nowTime: new Date()})
+			},1000)
+	}
+	//卸载
+	componentWillUnmount(){
+		clearInterval(this.timeID);
+	}
 	handleAdd(mes) {
 		this.setState({
 			todolist: mes
 		});
 	}
-
+	// change
+	handleChange(e) {
+		this.setState({ value: e.target.value})
+	}
 	render() {
 		return (
 			<div>
 				<h1 className="top">react-todolist</h1>
-				<Timer data={new Date()}/>
+				<Timer data = {this.state.nowTime.toLocaleTimeString()}/>
+				<Sync syncDate = {this.state.value}/>
 				<TypeNew add={this.handleAdd.bind(this)} todo={this.state.todolist} />
 				<ListTodo del={this.handleAdd.bind(this)} todo={this.state.todolist}  />
 			</div>
 		);
 	}
 };
+// 同步组件
+class Sync extends Component {
+	render() {
+		var value = this.props.syncDate;
+		return (
+			<div>
+				<input type='text' value={value} onChange={this.handleChange.bind(this)}/>
+				<h2>{value}</h2>
+			</div>
+		)
+	}
+}
+
+// 时间组件小练
+class Timer extends Component {
+	render() {
+		return (
+			<div>
+				{/* <h2 className="timer">现在的时间：{this.props.data}</h2> */}
+				<h2 className="timer">现在的时间：{this.props.data}</h2>
+			</div>
+		)
+	}
+}
+
 // 新加组件
 class TypeNew extends Component {
 	addContent(e) {
@@ -78,25 +119,16 @@ class ListTodo extends Component {
 	}
 };
 
-// 时间组件小练
-class Timer extends Component {
-	render() {
-		return (
-			<div>
-				<h2 className="timer">现在的时间：{this.props.data.toLocaleTimeString()}</h2>
-			</div>
-		)
-	}
-}
-
-// setInterval(function(){
-// 	ReactDOM.render(
-// 		<TodoList />,
-// 		document.getElementById("example")
-// 	)
-// },1000)
-
-setInterval(()=>{ReactDOM.render(
+ReactDOM.render(
 	<TodoList />,
 	document.getElementById("example")
-)},1000)
+)
+
+// var myStyle = {
+// 	fontSize: 100,
+// 	color: '#f00'
+// }
+// ReactDOM.render(
+// 	<h1 style={myStyle} >学习react</h1>,
+// 	document.getElementById("example")
+// )

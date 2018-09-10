@@ -9467,12 +9467,31 @@ var TodoList = function (_Component) {
 
 		_this.state = {
 			todolist: [],
-			timer: null
+			nowTime: new Date()
 		};
+		_this.timeID = null;
 		return _this;
 	}
+	//挂载
+
 
 	_createClass(TodoList, [{
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			var _this2 = this;
+
+			this.timeID = setInterval(function () {
+				_this2.setState({ nowTime: new Date() });
+			}, 1000);
+		}
+		//卸载
+
+	}, {
+		key: "componentWillUnmount",
+		value: function componentWillUnmount() {
+			clearInterval(this.timeID);
+		}
+	}, {
 		key: "handleAdd",
 		value: function handleAdd(mes) {
 			this.setState({
@@ -9490,7 +9509,7 @@ var TodoList = function (_Component) {
 					{ className: "top" },
 					"react-todolist"
 				),
-				_react2.default.createElement(Timer, { data: new Date() }),
+				_react2.default.createElement(Timer, { data: this.state.nowTime.toLocaleTimeString() }),
 				_react2.default.createElement(TypeNew, { add: this.handleAdd.bind(this), todo: this.state.todolist }),
 				_react2.default.createElement(ListTodo, { del: this.handleAdd.bind(this), todo: this.state.todolist })
 			);
@@ -9501,10 +9520,41 @@ var TodoList = function (_Component) {
 }(_react.Component);
 
 ;
+// 时间组件小练
+
+var Timer = function (_Component2) {
+	_inherits(Timer, _Component2);
+
+	function Timer() {
+		_classCallCheck(this, Timer);
+
+		return _possibleConstructorReturn(this, (Timer.__proto__ || Object.getPrototypeOf(Timer)).apply(this, arguments));
+	}
+
+	_createClass(Timer, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement(
+					"h2",
+					{ className: "timer" },
+					"\u73B0\u5728\u7684\u65F6\u95F4\uFF1A",
+					this.props.data
+				)
+			);
+		}
+	}]);
+
+	return Timer;
+}(_react.Component);
+
 // 新加组件
 
-var TypeNew = function (_Component2) {
-	_inherits(TypeNew, _Component2);
+
+var TypeNew = function (_Component3) {
+	_inherits(TypeNew, _Component3);
 
 	function TypeNew() {
 		_classCallCheck(this, TypeNew);
@@ -9541,8 +9591,8 @@ var TypeNew = function (_Component2) {
 ;
 // 删除组件
 
-var ListTodo = function (_Component3) {
-	_inherits(ListTodo, _Component3);
+var ListTodo = function (_Component4) {
+	_inherits(ListTodo, _Component4);
 
 	function ListTodo() {
 		_classCallCheck(this, ListTodo);
@@ -9588,36 +9638,6 @@ var ListTodo = function (_Component3) {
 
 ;
 
-// 时间组件小练
-
-var Timer = function (_Component4) {
-	_inherits(Timer, _Component4);
-
-	function Timer() {
-		_classCallCheck(this, Timer);
-
-		return _possibleConstructorReturn(this, (Timer.__proto__ || Object.getPrototypeOf(Timer)).apply(this, arguments));
-	}
-
-	_createClass(Timer, [{
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement(
-				"div",
-				null,
-				_react2.default.createElement(
-					"h2",
-					{ className: "timer" },
-					"\u73B0\u5728\u7684\u65F6\u95F4\uFF1A",
-					this.props.data.toLocaleTimeString()
-				)
-			);
-		}
-	}]);
-
-	return Timer;
-}(_react.Component);
-
 // setInterval(function(){
 // 	ReactDOM.render(
 // 		<TodoList />,
@@ -9625,9 +9645,21 @@ var Timer = function (_Component4) {
 // 	)
 // },1000)
 
-setInterval(function () {
-	_reactDom2.default.render(_react2.default.createElement(TodoList, null), document.getElementById("example"));
-}, 1000);
+// setInterval(()=>{ReactDOM.render(
+// 	<TodoList />,
+// 	document.getElementById("example")
+// )},1000)
+
+_reactDom2.default.render(_react2.default.createElement(TodoList, null), document.getElementById("example"));
+
+// var myStyle = {
+// 	fontSize: 100,
+// 	color: '#f00'
+// }
+// ReactDOM.render(
+// 	<h1 style={myStyle} >学习react</h1>,
+// 	document.getElementById("example")
+// )
 
 /***/ }),
 /* 80 */
