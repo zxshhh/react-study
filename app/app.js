@@ -11,7 +11,8 @@ class TodoList extends Component {
 		this.state = {
 			todolist: [],
 			nowTime:new Date(),
-			value: 'Hello world!'
+			value: 'Hello world!',
+			clickValue: '点击之前'
 		}
 		this.timeID = null;
 	}
@@ -33,33 +34,35 @@ class TodoList extends Component {
 	}
 	// change
 	handleChange(e) {
-		this.setState({ value: e.target.value})
+		this.setState({
+			value: e.target.value
+		})
+	}
+	//表单提交
+	handleSubmit(e){
+		alert('Your select is:' + this.state.value);
+		e.preventDefault();
+	}
+	//点击事件
+	handleClick(e){
+		this.setState({
+			clickValue:'点击之后'
+		})
 	}
 	render() {
 		return (
 			<div>
 				<h1 className="top">react-todolist</h1>
 				<Timer data = {this.state.nowTime.toLocaleTimeString()}/>
-				<Sync syncDate = {this.state.value}/>
-				<TypeNew add={this.handleAdd.bind(this)} todo={this.state.todolist} />
-				<ListTodo del={this.handleAdd.bind(this)} todo={this.state.todolist}  />
+				<Sync syncDate = {this.state.value} updateStateProp={this.handleChange.bind(this)}/>
+				<SelectOrder value={this.state.value} updateSubmit={this.handleSubmit.bind(this)} updateStateProp={this.handleChange.bind(this)}/>
+				<TypeNew todo={this.state.todolist} add={this.handleAdd.bind(this)} />
+				<ClickEvent clickValue={this.state.clickValue} clickChange={this.handleClick.bind(this)}/>
+				<ListTodo todo={this.state.todolist} del={this.handleAdd.bind(this)}  />
 			</div>
 		);
 	}
 };
-// 同步组件
-class Sync extends Component {
-	render() {
-		var value = this.props.syncDate;
-		return (
-			<div>
-				<input type='text' value={value} onChange={this.handleChange.bind(this)}/>
-				<h2>{value}</h2>
-			</div>
-		)
-	}
-}
-
 // 时间组件小练
 class Timer extends Component {
 	render() {
@@ -72,7 +75,49 @@ class Timer extends Component {
 	}
 }
 
-// 新加组件
+// 同步组件
+class Sync extends Component {
+	render() {
+		return (
+			<div>
+				<input type="text" value={this.props.syncDate} onChange={this.props.updateStateProp}/>
+				<h4>{this.props.syncDate}</h4>
+			</div>
+		)
+	}
+}
+
+//select下拉菜单
+class SelectOrder extends Component {
+	render (){
+		return (
+			<form onSubmit={this.props.updateSubmit}>
+				<label>
+					选择你喜欢的
+					<select value={this.props.value} onChange={this.props.updateStateProp}>
+						<option value='gg'>google</option>
+						<option value='fx'>firefox</option>
+						<option value='ie'>internetExplorer</option>
+					</select>
+				</label>
+				<input type="submit" value="提交"/>
+			</form>
+		)
+	}
+}
+
+//点击事件
+class ClickEvent extends Component {
+	render() {
+		return (
+			<div>
+				<button onClick={this.props.clickChange}>点我</button>
+				<h4>{this.props.clickValue}</h4>
+			</div>
+		)
+	}
+}
+// 添加组件
 class TypeNew extends Component {
 	addContent(e) {
 		e.preventDefault();//防止元素发生默认的行为

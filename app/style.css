@@ -3,7 +3,7 @@
 	margin: 0;
 }
 body{
-	background-color: #F5A22C;
+	background-color: rgb(248, 246, 244);
 	letter-spacing: 1px;
 }
 .top{
@@ -22,11 +22,11 @@ body{
 }
 .input{
 	height:100%;
-	width: 350px;
-	border: none;
+	width: 348px;
+	border: 1px solid #A19898;
 	font-size: 17px;
 	padding-left: 10px;
-	color: #8B8383;
+	/* color: #8B8383; */
 }
 .add{
 	height: 100%;
@@ -46,6 +46,7 @@ body{
 	margin-top: 20px;
 	list-style: none;
 	border-radius: 10px;
+	border: 1px solid #A19898;
 	padding-left: 10px;
 	font-size: 17px;
 	line-height: 60px;
