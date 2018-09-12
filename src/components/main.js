@@ -64,3 +64,17 @@ class Sider extends React.Component {
     )
   }
 }
+
+// 配置路由
+ReactDom.render((
+  <Router history={hashHistory} >
+      <Route path="/" component={Sider}>
+          <IndexRoute component={myIntroduce} />
+          <Route path="myIntroduce" component={myIntroduce} />
+          {/* <Route path="myTable" component={myTable} />
+          <Route path="myForm" component={myForm} />
+          <Route path="myProgress" component={myProgress} />
+          <Route path="myCarousel" component={myCarousel} /> */}
+      </Route>
+  </Router>
+), document.getElementById('app'));
