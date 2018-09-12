@@ -1,11 +1,11 @@
 var path = require("path");
 module.exports = {
   entry: {
-    app: ["./app/app.js"]
+    app: ["./src/app.js"]  //入口文件
   },
   output: {
-    filename: "main.js",
-    path: path.resolve("./build")
+    filename: "main.js",            //打包后输出文件的文件名
+    path: path.resolve("./build")   //打包后的文件存放的地方
   },
   module: {
     loaders: [
@@ -33,5 +33,8 @@ module.exports = {
                 loader: "less-loader" // compiles Less to CSS
               }]
       }
-      ]}
+      ]},
+      devServer: {
+        port: 8080
+      }
 };

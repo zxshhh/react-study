@@ -9468,7 +9468,8 @@ var TodoList = function (_Component) {
 		_this.state = {
 			todolist: [],
 			nowTime: new Date(),
-			value: 'Hello world!'
+			value: 'Hello world!',
+			clickValue: '点击之前'
 		};
 		_this.timeID = null;
 		return _this;
@@ -9504,7 +9505,26 @@ var TodoList = function (_Component) {
 	}, {
 		key: "handleChange",
 		value: function handleChange(e) {
-			this.setState({ value: e.target.value });
+			this.setState({
+				value: e.target.value
+			});
+		}
+		//表单提交
+
+	}, {
+		key: "handleSubmit",
+		value: function handleSubmit(e) {
+			alert('Your select is:' + this.state.value);
+			e.preventDefault();
+		}
+		//点击事件
+
+	}, {
+		key: "handleClick",
+		value: function handleClick(e) {
+			this.setState({
+				clickValue: '点击之后'
+			});
 		}
 	}, {
 		key: "render",
@@ -9518,9 +9538,11 @@ var TodoList = function (_Component) {
 					"react-todolist"
 				),
 				_react2.default.createElement(Timer, { data: this.state.nowTime.toLocaleTimeString() }),
-				_react2.default.createElement(Sync, { syncDate: this.state.value }),
-				_react2.default.createElement(TypeNew, { add: this.handleAdd.bind(this), todo: this.state.todolist }),
-				_react2.default.createElement(ListTodo, { del: this.handleAdd.bind(this), todo: this.state.todolist })
+				_react2.default.createElement(Sync, { syncDate: this.state.value, updateStateProp: this.handleChange.bind(this) }),
+				_react2.default.createElement(SelectOrder, { value: this.state.value, updateSubmit: this.handleSubmit.bind(this), updateStateProp: this.handleChange.bind(this) }),
+				_react2.default.createElement(TypeNew, { todo: this.state.todolist, add: this.handleAdd.bind(this) }),
+				_react2.default.createElement(ClickEvent, { clickValue: this.state.clickValue, clickChange: this.handleClick.bind(this) }),
+				_react2.default.createElement(ListTodo, { todo: this.state.todolist, del: this.handleAdd.bind(this) })
 			);
 		}
 	}]);
@@ -9529,42 +9551,10 @@ var TodoList = function (_Component) {
 }(_react.Component);
 
 ;
-// 同步组件
-
-var Sync = function (_Component2) {
-	_inherits(Sync, _Component2);
-
-	function Sync() {
-		_classCallCheck(this, Sync);
-
-		return _possibleConstructorReturn(this, (Sync.__proto__ || Object.getPrototypeOf(Sync)).apply(this, arguments));
-	}
-
-	_createClass(Sync, [{
-		key: "render",
-		value: function render() {
-			var value = this.props.syncDate;
-			return _react2.default.createElement(
-				"div",
-				null,
-				_react2.default.createElement("input", { type: "text", value: value, onChange: this.handleChange.bind(this) }),
-				_react2.default.createElement(
-					"h2",
-					null,
-					value
-				)
-			);
-		}
-	}]);
-
-	return Sync;
-}(_react.Component);
-
 // 时间组件小练
 
-
-var Timer = function (_Component3) {
-	_inherits(Timer, _Component3);
+var Timer = function (_Component2) {
+	_inherits(Timer, _Component2);
 
 	function Timer() {
 		_classCallCheck(this, Timer);
@@ -9591,11 +9581,126 @@ var Timer = function (_Component3) {
 	return Timer;
 }(_react.Component);
 
-// 新加组件
+// 同步组件
 
 
-var TypeNew = function (_Component4) {
-	_inherits(TypeNew, _Component4);
+var Sync = function (_Component3) {
+	_inherits(Sync, _Component3);
+
+	function Sync() {
+		_classCallCheck(this, Sync);
+
+		return _possibleConstructorReturn(this, (Sync.__proto__ || Object.getPrototypeOf(Sync)).apply(this, arguments));
+	}
+
+	_createClass(Sync, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement("input", { type: "text", value: this.props.syncDate, onChange: this.props.updateStateProp }),
+				_react2.default.createElement(
+					"h4",
+					null,
+					this.props.syncDate
+				)
+			);
+		}
+	}]);
+
+	return Sync;
+}(_react.Component);
+
+//select下拉菜单
+
+
+var SelectOrder = function (_Component4) {
+	_inherits(SelectOrder, _Component4);
+
+	function SelectOrder() {
+		_classCallCheck(this, SelectOrder);
+
+		return _possibleConstructorReturn(this, (SelectOrder.__proto__ || Object.getPrototypeOf(SelectOrder)).apply(this, arguments));
+	}
+
+	_createClass(SelectOrder, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"form",
+				{ onSubmit: this.props.updateSubmit },
+				_react2.default.createElement(
+					"label",
+					null,
+					"\u9009\u62E9\u4F60\u559C\u6B22\u7684",
+					_react2.default.createElement(
+						"select",
+						{ value: this.props.value, onChange: this.props.updateStateProp },
+						_react2.default.createElement(
+							"option",
+							{ value: "gg" },
+							"google"
+						),
+						_react2.default.createElement(
+							"option",
+							{ value: "fx" },
+							"firefox"
+						),
+						_react2.default.createElement(
+							"option",
+							{ value: "ie" },
+							"internetExplorer"
+						)
+					)
+				),
+				_react2.default.createElement("input", { type: "submit", value: "\u63D0\u4EA4" })
+			);
+		}
+	}]);
+
+	return SelectOrder;
+}(_react.Component);
+
+//点击事件
+
+
+var ClickEvent = function (_Component5) {
+	_inherits(ClickEvent, _Component5);
+
+	function ClickEvent() {
+		_classCallCheck(this, ClickEvent);
+
+		return _possibleConstructorReturn(this, (ClickEvent.__proto__ || Object.getPrototypeOf(ClickEvent)).apply(this, arguments));
+	}
+
+	_createClass(ClickEvent, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement(
+					"button",
+					{ onClick: this.props.clickChange },
+					"\u70B9\u6211"
+				),
+				_react2.default.createElement(
+					"h4",
+					null,
+					this.props.clickValue
+				)
+			);
+		}
+	}]);
+
+	return ClickEvent;
+}(_react.Component);
+// 添加组件
+
+
+var TypeNew = function (_Component6) {
+	_inherits(TypeNew, _Component6);
 
 	function TypeNew() {
 		_classCallCheck(this, TypeNew);
@@ -9632,8 +9737,8 @@ var TypeNew = function (_Component4) {
 ;
 // 删除组件
 
-var ListTodo = function (_Component5) {
-	_inherits(ListTodo, _Component5);
+var ListTodo = function (_Component7) {
+	_inherits(ListTodo, _Component7);
 
 	function ListTodo() {
 		_classCallCheck(this, ListTodo);
@@ -11617,7 +11722,7 @@ exports = module.exports = __webpack_require__(83)(undefined);
 
 
 // module
-exports.push([module.i, "*{\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n}\r\nbody{\r\n\tbackground-color: #F5A22C;\r\n\tletter-spacing: 1px;\r\n}\r\n.top{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.timer{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.form{\r\n\twidth: 430px;\r\n\theight: 50px;\r\n}\r\n.input{\r\n\theight:100%;\r\n\twidth: 350px;\r\n\tborder: none;\r\n\tfont-size: 17px;\r\n\tpadding-left: 10px;\r\n\tcolor: #8B8383;\r\n}\r\n.add{\r\n\theight: 100%;\r\n\twidth: 60px;\r\n\tmargin-left: 10px;\r\n\tbackground-color: #FB731F;\r\n\tborder: none;\r\n\tcolor: white;\r\n\tfont-size: 16px;\r\n}\r\n.add:hover{\r\n\tcursor: pointer;\r\n}\r\n.content{\r\n\twidth: 420px;\r\n\tbackground-color: rgba(255,255,255,.3);\r\n\tmargin-top: 20px;\r\n\tlist-style: none;\r\n\tborder-radius: 10px;\r\n\tpadding-left: 10px;\r\n\tfont-size: 17px;\r\n\tline-height: 60px;\r\n}\r\n.content .del{\r\n\tfloat: right;\r\n\tpadding-right: 10px;\r\n\tcolor: #A19898;\r\n}\r\n.del:hover{\r\n\tcursor: pointer;\r\n}", ""]);
+exports.push([module.i, "*{\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n}\r\nbody{\r\n\tbackground-color: rgb(248, 246, 244);\r\n\tletter-spacing: 1px;\r\n}\r\n.top{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.timer{\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n.form{\r\n\twidth: 430px;\r\n\theight: 50px;\r\n}\r\n.input{\r\n\tpadding-left: 10px;\r\n\theight:100%;\r\n\twidth: 348px;\r\n\tborder: 1px solid #A19898;\r\n\tfont-size: 17px;\r\n}\r\n.add{\r\n\tmargin-left: 10px;\r\n\theight: 100%;\r\n\twidth: 60px;\r\n\tborder: none;\r\n\tcolor: white;\r\n\tfont-size: 16px;\r\n\tbackground-color: #FB731F;\r\n}\r\n.add:hover{\r\n\tcursor: pointer;\r\n}\r\n.content{\r\n\tmargin-top: 20px;\r\n\tpadding-left: 10px;\r\n\twidth: 420px;\r\n\tline-height: 60px;\r\n\tlist-style: none;\r\n\tborder-radius: 10px;\r\n\tborder: 1px solid #A19898;\r\n\tbackground-color: rgba(255,255,255,.3);\r\n\tfont-size: 17px;\r\n}\r\n.content .del{\r\n\tfloat: right;\r\n\tpadding-right: 10px;\r\n\tcolor: #A19898;\r\n}\r\n.del:hover{\r\n\tcursor: pointer;\r\n}", ""]);
 
 // exports
 
