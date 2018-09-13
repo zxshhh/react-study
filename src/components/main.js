@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {Route,Router,Link,hashHistory,browserHistory ,IndexRoute,Redirect,IndexLink} from 'react-router';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route, Router, Link, hashHistory, browserHistory, IndexRoute, Redirect, IndexLink } from 'react-router';
 //引入antd的导航组件
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -38,7 +38,7 @@ export default class Sider extends React.Component {
       current: e.key
     })
   }
-  componentWillMount(){
+  componentWillMount() {
     var route = this.props.location.pathname;
     this.setState({
       current: routeMap[route] || '0'
@@ -64,7 +64,7 @@ export default class Sider extends React.Component {
             mode='inline'
           >
             <Menu.Item key='0'><Link to='/myIntroduce'><Icon type='mail'>我没有子菜单</Icon></Link></Menu.Item>
-            <SubMenu key='sub1' title={<span><Icon type="bars"/><span>主导航</span></span>}>
+            <SubMenu key='sub1' title={<span><Icon type="bars" /><span>主导航</span></span>}>
               <Menu.Item key="1"><Link to="/myTable">表格</Link></Menu.Item>
               <Menu.Item key="2"><Link to="/myForm">表单</Link></Menu.Item>
               <Menu.Item key="3"><Link to="/myProgress">进度条</Link></Menu.Item>
@@ -74,12 +74,12 @@ export default class Sider extends React.Component {
         </div>
         <div id="rightWrap">
           <Menu mode="horizontal">
-            <SubMenu title={<span><Icon type="user" />{ this.state.username }</span>}>
+            <SubMenu title={<span><Icon type="user" />{this.state.username}</span>}>
               <Menu.Item key="setting:1">退出</Menu.Item>
             </SubMenu>
           </Menu>
           <div className="right-box">
-            { this.props.children }
+            {this.props.children}
           </div>
         </div>
       </div>
@@ -90,13 +90,13 @@ export default class Sider extends React.Component {
 // 配置路由
 ReactDom.render((
   <Router history={browserHistory} >
-      <Route path="/" component={Sider}>
-          <IndexRoute component={myIntroduce} />
-          <Route path="myIntroduce" component={myIntroduce} />
-          <Route path="myTable" component={myTable} />
-          <Route path="myForm" component={myForm} />
-          <Route path="myProgress" component={myProgress} />
-          <Route path="myCarousel" component={myCarousel} />
-      </Route>
+    <Route path="/" component={Sider}>
+      <IndexRoute component={myIntroduce} />
+      <Route path="myIntroduce" component={myIntroduce} />
+      <Route path="myTable" component={myTable} />
+      <Route path="myForm" component={myForm} />
+      <Route path="myProgress" component={myProgress} />
+      <Route path="myCarousel" component={myCarousel} />
+    </Route>
   </Router>
 ), document.getElementById('app'));
