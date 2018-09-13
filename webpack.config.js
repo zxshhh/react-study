@@ -4,9 +4,9 @@ module.exports = {
     app: ["./src/app.js"]  //入口文件
   },
   output: {
-    path: "./build",   //打包后的文件存放的地方
+    // path: "./build",   //打包后的文件存放的地方
     filename: "main.js",            //打包后输出文件的文件名
-    // path: path.resolve("./build")   //打包后的文件存放的地方
+    path: path.resolve("./build")   //打包后的文件存放的地方
   },
   module: {
     loaders: [
