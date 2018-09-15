@@ -4,10 +4,13 @@ require('./style.css')
 
 //引入样式
 import "./styles/main.less";
-// //引入组件
+//引入组件
 import "./components/main.js";
 
-//TodoList组件是一个整体的组件，最终React也只渲染这个组件
+//自己学习
+// import "./study/study"
+
+// //TodoList组件是一个整体的组件，最终React也只渲染这个组件
 
 // //TodoList组件是两个组件的集合
 // class TodoList extends Component {
@@ -126,7 +129,7 @@ import "./components/main.js";
 // class TypeNew extends Component {
 // 	addContent(e) {
 // 		e.preventDefault();//防止元素发生默认的行为
-// 		var tet = this.refs.content.value.trim();
+//     var tet = this.refs.content.value.trim();
 // 		if (tet != '') {
 // 			this.props.todo.push(tet);
 // 			this.props.add(this.props.todo);

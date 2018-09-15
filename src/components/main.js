@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{Component} from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Route, Router, Link, hashHistory, browserHistory, IndexRoute, Redirect, IndexLink } from 'react-router';
+import { Route, Router, Link, hashHistory, browserHistory, IndexRoute} from 'react-router';
 //引入antd的导航组件
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
