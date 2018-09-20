@@ -2,7 +2,9 @@
   # <!DOCTYPE>声明必须是html文档的第一行，位于<html>标签之前。
   # <!DOCTYPE>声明不是html标签，它是指示web浏览器使用哪个html版本进行编码的指令
   # 在html4.01中，<!DOCTYPE>声明引用DTD，因为html4.01基于SGML。DTD规定了标记语言的规则，这样浏览器才能正确地呈现内容。
+  ## <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   # html5不基于SGML,所以不需要引用DTD。
+  ## <!DOCTYPE html>
  -->
 
 <!-- 伪类和为元素

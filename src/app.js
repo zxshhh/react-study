@@ -5,10 +5,10 @@ require('./style.css')
 //引入样式
 import "./styles/main.less";
 //引入组件
-import "./components/main.js";
+// import "./components/main.js";
 
 //自己学习
-// import "./study/study"
+import "./study/study"
 
 // //TodoList组件是一个整体的组件，最终React也只渲染这个组件
 

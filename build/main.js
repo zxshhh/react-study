@@ -12069,7 +12069,7 @@ exports = module.exports = __webpack_require__(52)(undefined);
 
 
 // module
-exports.push([module.i, "html,\nbody,\ndiv,\nh5,\nh6,\np,\nul,\nli {\n  margin: 0;\n  padding: 0;\n}\n#app {\n  /* 左侧导航固定宽度*/\n  /* logo样式*/\n}\n#app #leftMenu {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 200px;\n  box-sizing: border-box;\n  background: #333;\n}\n#app #logo {\n  display: block;\n  margin: 20px auto;\n  transition: all 1s;\n}\n#app:hover {\n  transform: rotate(360deg);\n}\n", ""]);
+exports.push([module.i, "html,\nbody,\ndiv,\nh5,\nh6,\np,\nul,\nli {\n  margin: 0;\n  padding: 0;\n}\n#components-layout-demo-side .logo {\n  height: 32px;\n  background: rgba(255, 255, 255, 0.2);\n  margin: 16px;\n}\n", ""]);
 
 // exports
 
@@ -12083,7 +12083,7 @@ exports = module.exports = __webpack_require__(52)(undefined);
 
 
 // module
-exports.push([module.i, "* {\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n}\r\n\r\nbody {\r\n\tbackground-color: rgb(248, 246, 244);\r\n\tletter-spacing: 1px;\r\n}\r\n\r\n.top {\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n\r\n.timer {\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\tfont-size: 26px;\r\n}\r\n\r\n.form {\r\n\twidth: 430px;\r\n\theight: 50px;\r\n}\r\n\r\n.input {\r\n\tpadding-left: 10px;\r\n\theight: 100%;\r\n\twidth: 348px;\r\n\tborder: 1px solid #A19898;\r\n\tfont-size: 17px;\r\n}\r\n\r\n.add {\r\n\tmargin-left: 10px;\r\n\theight: 100%;\r\n\twidth: 60px;\r\n\tborder: none;\r\n\tcolor: white;\r\n\tfont-size: 16px;\r\n\tbackground-color: #FB731F;\r\n}\r\n\r\n.add:hover {\r\n\tcursor: pointer;\r\n}\r\n\r\n.content {\r\n\tmargin-top: 20px;\r\n\tpadding-left: 10px;\r\n\twidth: 420px;\r\n\tline-height: 60px;\r\n\tlist-style: none;\r\n\tborder-radius: 10px;\r\n\tborder: 1px solid #A19898;\r\n\tbackground-color: rgba(255, 255, 255, .3);\r\n\tfont-size: 17px;\r\n}\r\n\r\n.content .del {\r\n\tfloat: right;\r\n\tpadding-right: 10px;\r\n\tcolor: #A19898;\r\n}\r\n\r\n.del:hover {\r\n\tcursor: pointer;\r\n}", ""]);
+exports.push([module.i, "* {\n\tpadding: 0;\n\tmargin: 0;\n}\n\nbody {\n\tbackground-color: rgb(248, 246, 244);\n\tletter-spacing: 1px;\n}\n\n.top {\n\ttext-align: center;\n\tmargin-bottom: 20px;\n\tfont-size: 26px;\n}\n\n.timer {\n\ttext-align: center;\n\tmargin-bottom: 20px;\n\tfont-size: 26px;\n}\n\n.form {\n\twidth: 430px;\n\theight: 50px;\n}\n\n.input {\n\tpadding-left: 10px;\n\theight: 100%;\n\twidth: 348px;\n\tborder: 1px solid #A19898;\n\tfont-size: 17px;\n}\n\n.add {\n\tmargin-left: 10px;\n\theight: 100%;\n\twidth: 60px;\n\tborder: none;\n\tcolor: white;\n\tfont-size: 16px;\n\tbackground-color: #FB731F;\n}\n\n.add:hover {\n\tcursor: pointer;\n}\n\n.content {\n\tmargin-top: 20px;\n\tpadding-left: 10px;\n\twidth: 420px;\n\tline-height: 60px;\n\tlist-style: none;\n\tborder-radius: 10px;\n\tborder: 1px solid #A19898;\n\tbackground-color: rgba(255, 255, 255, .3);\n\tfont-size: 17px;\n}\n\n.content .del {\n\tfloat: right;\n\tpadding-right: 10px;\n\tcolor: #A19898;\n}\n\n.del:hover {\n\tcursor: pointer;\n}", ""]);
 
 // exports
 
